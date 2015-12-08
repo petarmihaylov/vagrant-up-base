@@ -1,13 +1,17 @@
 #!/bin/bash
 #
-# This provisioning script has been derived from Varying Vagrant Vagrants:
+# This provisioning script has been derived from vagrant-up-github-pages, which was derived from Varying Vagrant Vagrants:
+# https://github.com/kappataumu/vagrant-up-github-pages
 # https://github.com/Varying-Vagrant-Vagrants/VVV
 #
-# It accompanies the article which can be found here:
-# http://kappataumu.com/articles/vagrant-jekyll-github-pages-streamlined-content-creation.html
+# It is meant to be a starting point and not a complete development environment.
+# You should modify this file to suit your needs.
+# 
+# Check out the main project page for more resources on how to use Vagrant
+# https://github.com/petarmihaylov/vagrant-up-base
 
 CLONEREPO='XXX'
-CLONEDIR="/srv/www/$(basename $CLONEREPO)"
+CLONEDIR="~/$(basename $CLONEREPO)"
 
 start_seconds="$(date +%s)"
 echo "Welcome to the initialization script."
@@ -18,6 +22,7 @@ if [[ $ping_result != *bytes?from* ]]; then
     exit 1
 fi
 
+# List of packages to install
 apt_package_check_list=(
     vim
     curl
@@ -47,6 +52,7 @@ done
 if [[ ${#apt_package_install_list[@]} = 0 ]]; then
     echo -e "No apt packages to install.\n"
 else
+    # Add anything that might beed to run before the packages in your List of Packages to install (above)
 
     # Provides add-apt-repository (including for Ubuntu 12.10)
     sudo apt-get update --assume-yes > /dev/null
