@@ -1,3 +1,6 @@
+WARNING: This is a WORK-IN-PROGRESS. I wouldn't even call it a beta version, more like early ALPHA.
+---
+
 This is a Vagrant configuration plus provisioning shell script that lets you easily `vagrant up` a local machine for development. It was forked from [kappataumu's] excellent [vagrant-up-github-pages](https://github.com/kappataumu/vagrant-up-github-pages).
 
 Getting started is straightforward:
